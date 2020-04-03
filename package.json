@@ -1,0 +1,21 @@
+{
+  "name": "electron-graphic-editor",
+  "version": "1.0.0",
+  "description": "Electron Graphic Editor application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Tomer L",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^8.2.0"
+  }
+}
