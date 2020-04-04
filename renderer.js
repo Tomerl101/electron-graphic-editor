@@ -6,14 +6,14 @@
 // process.
 
 // const editor = require('./Editor'); already required at index.html
-const SHAPES = {POINT: "point", LINE : "line", CIRCLE: "circle"};
+const SHAPES = {PATH: "path", LINE : "line", CIRCLE: "circle"};
 import {Editor} from './Editor.js';
 let editor = new Editor();
 
 editor.canvas.addEventListener('contextmenu', editor.clearCanvas, false);
 editor.canvas.addEventListener('mousedown', startDraw, false);
 
-document.querySelector('#drawPointBtn').addEventListener('click', ()=>editor.setShape(SHAPES.POINT));
+document.querySelector('#drawPathBtn').addEventListener('click', ()=>editor.setShape(SHAPES.PATH));
 document.querySelector('#drawLineBtn').addEventListener('click', ()=>editor.setShape(SHAPES.LINE));
 document.querySelector('#drawCircleBtn').addEventListener('click', ()=>editor.setShape(SHAPES.CIRCLE));
 
