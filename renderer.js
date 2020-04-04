@@ -6,11 +6,17 @@
 // process.
 
 // const editor = require('./Editor'); already required at index.html
+const SHAPES = {POINT: "point", LINE : "line", CIRCLE: "circle"};
 import {Editor} from './Editor.js';
 let editor = new Editor();
 
-editor.canvas.addEventListener('contextmenu', clearCanvas, false);
+editor.canvas.addEventListener('contextmenu', editor.clearCanvas, false);
 editor.canvas.addEventListener('mousedown', startDraw, false);
+
+document.querySelector('#drawPointBtn').addEventListener('click', ()=>editor.setShape(SHAPES.POINT));
+document.querySelector('#drawLineBtn').addEventListener('click', ()=>editor.setShape(SHAPES.LINE));
+document.querySelector('#drawCircleBtn').addEventListener('click', ()=>editor.setShape(SHAPES.CIRCLE));
+
 
 function startDraw(e) {
   editor.lastState = editor.ctx.getImageData(0, 0, 800, 600);
@@ -22,10 +28,4 @@ function startDraw(e) {
     editor.canvas.onmouseup = null;
     editor.prevDraw = null;
   };
-}
-
-function clearCanvas(e) {
-  const { canvas, ctx } = editor;
-  e.preventDefault();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }

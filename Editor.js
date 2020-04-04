@@ -1,12 +1,11 @@
-import drawLine from './algorithms/bresenhamLine.js';
-
+import {Point, Line, Circle} from './geometry/index.js';
 class Editor {
   constructor() {
     this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.clickedMousePos = {x:null, y:null};
-    this.shape = null;
-    this.size = 1;
+    this.shape = Point; //set line as default shape to draw
+    this.size = 1;    // pixel size to draw
 
     this.setClickedMousePos = this.setClickedMousePos.bind(this);
     this.getCurrMousePos = this.getCurrMousePos.bind(this);
@@ -37,8 +36,10 @@ class Editor {
     const {posX: currPosX, posY: currPosY} = this.getCurrMousePos(e);
     const {x:clickedPosX, y:clickedPosY} = this.clickedMousePos;
 
-    this.ctx.putImageData(this.lastState, 0, 0); //draw the last saved canvas image
-    drawLine(clickedPosX,clickedPosY,currPosX,currPosY, this.putPixel);
+    if(this.shape != Point){
+      this.ctx.putImageData(this.lastState, 0, 0); //draw the last saved canvas image
+    }
+    this.shape.draw(clickedPosX,clickedPosY,currPosX,currPosY, this.putPixel);
   }
 
   clearCanvas(e) {
@@ -46,6 +47,21 @@ class Editor {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
+  setShape(shape) {
+    console.log(shape);
+    switch (shape) {
+      case "point":
+        this.shape = Point;
+        break;
+      case "line":
+        this.shape = Line;
+        break;
+      case "circle":
+        this.shape = Circle;
+      default:
+        break;
+    }
+  }
 }
 
 export {Editor}
