@@ -1,4 +1,4 @@
-# electron-Graphic-Editor 🎨
+# Electron-Graphic-Editor 🎨
 
 **Clone and run for a quick way to see Electron in action.**
 
