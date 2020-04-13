@@ -1,11 +1,14 @@
-import {Path, Line, Circle} from './geometry/index.js';
+import SHAPES from "./geometry/index.js";
+
 class Editor {
   constructor() {
     this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
-    this.clickedMousePos = {x:null, y:null};
-    this.shape = Path; //set line as default shape to draw
-    this.size = 4;    // pixel size to draw
+    this.clickedMousePos = { x: null, y: null };
+    this.shapeRef = SHAPES.path; //set path shape as default shape to draw
+    this.shapeName = "path";
+    this.size = 4; // pixel size to draw
+    this.lastDrawingState = null;
 
     this.setClickedMousePos = this.setClickedMousePos.bind(this);
     this.getCurrMousePos = this.getCurrMousePos.bind(this);
@@ -14,33 +17,40 @@ class Editor {
     this.draw = this.draw.bind(this);
   }
 
-  putPixel(x,y){
+  putPixel(x, y) {
     this.ctx.fillRect(x, y, this.size, this.size);
   }
 
   setClickedMousePos(evt) {
-    const {posX, posY} = this.getCurrMousePos(evt);
+    const { posX, posY } = this.getCurrMousePos(evt);
     this.clickedMousePos.x = posX;
-    this.clickedMousePos.y = posY
+    this.clickedMousePos.y = posY;
   }
 
   getCurrMousePos(evt) {
     var rect = this.canvas.getBoundingClientRect();
     return {
-      posX: evt.clientX - rect.left,
-      posY: evt.clientY - rect.top
+      posX: Math.round(evt.clientX - rect.left),
+      posY: Math.round(evt.clientY - rect.top),
     };
   }
 
-  draw(e){
-    const {posX: currPosX, posY: currPosY} = this.getCurrMousePos(e);
-    const {x:clickedPosX, y:clickedPosY} = this.clickedMousePos;
+  draw(e) {
+    const { posX: currPosX, posY: currPosY } = this.getCurrMousePos(e);
+    const { x: clickedPosX, y: clickedPosY } = this.clickedMousePos;
 
-    if(this.shape !== Path){
-      this.ctx.putImageData(this.lastState, 0, 0); //draw the last saved canvas image
+    if (this.shapeName !== "path") {
+      this.ctx.putImageData(this.lastDrawingState, 0, 0); //redraw the last saved canvas image
     }
 
-    this.shape.draw(clickedPosX,clickedPosY,currPosX,currPosY, this.putPixel, this);
+    this.shapeRef.draw(
+      clickedPosX,
+      clickedPosY,
+      currPosX,
+      currPosY,
+      this.putPixel,
+      this
+    );
   }
 
   clearCanvas(e) {
@@ -49,20 +59,9 @@ class Editor {
   }
 
   setShape(shape) {
-    console.log(shape);
-    switch (shape) {
-      case "path":
-        this.shape = Path;
-        break;
-      case "line":
-        this.shape = Line;
-        break;
-      case "circle":
-        this.shape = Circle;
-      default:
-        break;
-    }
+    this.shapeName = shape;
+    this.shapeRef = SHAPES[shape];
   }
 }
 
-export {Editor}
+export { Editor };

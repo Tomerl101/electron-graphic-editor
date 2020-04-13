@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="../initEvents.js"></script>
     <title>Graphic Editor</title>
   </head>
   <body>
@@ -14,9 +15,9 @@
       <button id="drawPathBtn">Path</button>
       <button id="drawLineBtn">Line</button>
       <button id="drawCircleBtn">Circle</button>
+      <button id="drawCurveBtn">Curve</button>
     </header>
     <canvas width="800" height="500"></canvas>
     <!-- You can also require other files to run in this process -->
-    <script type="module" src="renderer.js"></script>
   </body>
 </html>

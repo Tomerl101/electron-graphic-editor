@@ -11,7 +11,7 @@ function createWindow () {
   })
 
   mainWindow.resizable = false;
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('./view/index.html')
   mainWindow.webContents.openDevTools()
 }
 
