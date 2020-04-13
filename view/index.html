@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <script
+      src="https://kit.fontawesome.com/71259ed52b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
     <script type="module" defer src="../initEvents.js"></script>
     <title>Graphic Editor</title>
   </head>
   <body>
     <header>
-      <h1>Graphic Editor 🎨</h1>
-      <button id="drawPathBtn">Path</button>
-      <button id="drawLineBtn">Line</button>
-      <button id="drawCircleBtn">Circle</button>
-      <button id="drawCurveBtn">Curve</button>
+      <div id="toolbar">
+        <i id="drawPathBtn" class="icon fas fa-paint-brush"></i>
+        <i id="drawLineBtn" class="icon fas fa-vector-square"></i>
+        <i id="drawCircleBtn" class="icon far fa-circle"></i>
+        <i id="drawCurveBtn" class="icon fas fa-bezier-curve"></i>
+        <!-- <button id="drawPathBtn">Path</button>
+        <button id="drawLineBtn">Line</button>
+        <button id="drawCircleBtn">Circle</button>
+        <button id="drawCurveBtn">Curve</button> -->
+      </div>
     </header>
-    <canvas width="800" height="500"></canvas>
+    <main>
+      <canvas width="800" height="540"></canvas>
+    </main>
     <!-- You can also require other files to run in this process -->
   </body>
 </html>

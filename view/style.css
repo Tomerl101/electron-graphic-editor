@@ -12,4 +12,35 @@ body {
 body {
   height: 100vh;
   width: 100vw;
+  background-color: #bababa;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  align-content: center;
+  background-color: #3c3e47;
+  height: 60px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+canvas {
+  background-color: white;
+}
+
+#toolbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon {
+  color: whitesmoke;
+  font-size: 32px;
 }

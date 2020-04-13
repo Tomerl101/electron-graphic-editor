@@ -8,7 +8,7 @@
 import { Editor } from "./Editor.js";
 const editor = new Editor();
 const WIDTH = 1024;
-const HEIGHT = 768;
+const HEIGHT = 300;
 
 editor.canvas.addEventListener("contextmenu", editor.clearCanvas, false);
 editor.canvas.addEventListener("mousedown", startDraw, false);
@@ -30,7 +30,7 @@ document
   .addEventListener("click", () => editor.setShape("curve"));
 
 function startDraw(e) {
-  editor.lastDrawingState = editor.ctx.getImageData(0, 0, WIDTH, HEIGHT);
+  editor.lastDrawingState = editor.ctx.getImageData(0, 0, 800, 600);
 
   editor.setClickedMousePos(e);
   document.addEventListener("mousemove", editor.draw);
@@ -48,3 +48,5 @@ function startDraw(e) {
     editor.prevDraw = null;
   };
 }
+
+// 019ffd
