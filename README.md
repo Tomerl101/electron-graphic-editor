@@ -14,14 +14,13 @@ Feel free to support this project and add many more features
 
 ## To be done 📝
 
-- Improve UI
-- Color pallete tool
 - Draw size slider tool
 - Earser tool
 - Select tool
 - Cut tool
 - Bucket tool - (Fill shape with color)
 - Add more algorithms for different shapes drawing
+- Responsive UI
 
 ## Supported shapes ✏️
 

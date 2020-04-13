@@ -3,14 +3,15 @@ const path = require("path");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800 + 80,
+    width: 780 + 80,
     height: 600 + 80,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
-  mainWindow.resizable = false;
+  // mainWindow.resizable = false;
+  mainWindow.setResizable(false);
   mainWindow.loadFile("./view/index.html");
   mainWindow.webContents.openDevTools();
 }

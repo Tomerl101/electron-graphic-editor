@@ -17,6 +17,13 @@ document.querySelectorAll(".shapeBtn").forEach((btn) => {
   });
 });
 
+document.querySelectorAll(".color").forEach((color) => {
+  color.addEventListener("click", (e) => {
+    const colorValue = getSelectedColor(e);
+    editor.setColor(colorValue);
+  });
+});
+
 function selectShape(e) {
   const selectedShape = e.target;
   const buttons = Array.from(document.querySelectorAll(".shapeBtn"));
@@ -24,6 +31,12 @@ function selectShape(e) {
   activeBtn.classList.remove("active");
   selectedShape.classList.add("active");
   editor.setShape(selectedShape.id);
+}
+
+function getSelectedColor(e) {
+  return getComputedStyle(
+    document.querySelector(`#${e.target.id}`)
+  ).getPropertyValue(`--${e.target.id}-color`);
 }
 
 function startDraw(e) {

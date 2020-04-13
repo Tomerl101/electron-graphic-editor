@@ -1,0 +1,87 @@
+:root {
+  --turquoise-color: #17bc9b;
+  --emerald-color: #2ecc71;
+  --nephritis-color: #28ae60;
+  --sea-color: #179f84;
+  --sun-color: #f1c50c;
+  --carot-color: #e67e22;
+  --orange-color: #f29c11;
+  --pumpkin-color: #d35300;
+  --alizarin-color: #e84b3c;
+  --pomegranate-color: #c0382b;
+  --amhtyst-color: #9b59b6;
+  --westeria-color: #8d43ad;
+  --river-color: #3497da;
+  --belize-color: #2980b9;
+  --asphalt-color: #33495d;
+  --clouds-color: #ecf0f1;
+  --silver-color: #bdc3c7;
+  --concrete-color: #95a5a6;
+  --asbetos-color: #7e8c8d;
+  --midnight-color: #2c3e4f;
+  --black-color: #000000;
+}
+
+#turquoise {
+  background-color: var(--turquoise-color);
+}
+#emerald {
+  background-color: var(--emerald-color);
+}
+#river {
+  background-color: var(--river-color);
+}
+#amhtyst {
+  background-color: var(--amhtyst-color);
+}
+#asphalt {
+  background-color: var(--asphalt-color);
+}
+#sea {
+  background-color: var(--sea-color);
+}
+#nephritis {
+  background-color: var(--nephritis-color);
+}
+#belize {
+  background-color: var(--belize-color);
+}
+#westeria {
+  background-color: var(--westeria-color);
+}
+#midnight {
+  background-color: var(--midnight-color);
+}
+#sun {
+  background-color: var(--sun-color);
+}
+#carot {
+  background-color: var(--carot-color);
+}
+#alizarin {
+  background-color: var(--alizarin-color);
+}
+#clouds {
+  background-color: var(--clouds-color);
+}
+#concrete {
+  background-color: var(--concrete-color);
+}
+#orange {
+  background-color: var(--orange-color);
+}
+#pumpkin {
+  background-color: var(--pumpkin-color);
+}
+#pomegranate {
+  background-color: var(--pomegranate-color);
+}
+#silver {
+  background-color: var(--silver-color);
+}
+#asbetos {
+  background-color: var(--asbetos-color);
+}
+#black {
+  background-color: var(--black-color);
+}

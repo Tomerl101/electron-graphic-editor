@@ -7,7 +7,8 @@ class Editor {
     this.clickedMousePos = { x: null, y: null };
     this.shapeRef = SHAPES.path; //set path shape as default shape to draw
     this.shapeName = "path";
-    this.size = 1; // pixel size to draw
+    this.color = "#000000";
+    this.size = 3; // pixel size to draw
     this.lastDrawingState = null;
 
     this.setClickedMousePos = this.setClickedMousePos.bind(this);
@@ -19,6 +20,10 @@ class Editor {
 
   putPixel(x, y) {
     this.ctx.fillRect(x, y, this.size, this.size);
+  }
+
+  setColor(color) {
+    this.ctx.fillStyle = color;
   }
 
   setClickedMousePos(evt) {
