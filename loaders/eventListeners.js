@@ -5,29 +5,26 @@
 // selectively enable features needed in the rendering
 // process.
 
-import { Editor } from "./Editor.js";
+import { Editor } from "../Editor.js";
 const editor = new Editor();
-const WIDTH = 1024;
-const HEIGHT = 300;
 
 editor.canvas.addEventListener("contextmenu", editor.clearCanvas, false);
 editor.canvas.addEventListener("mousedown", startDraw, false);
 
-document
-  .querySelector("#drawPathBtn")
-  .addEventListener("click", () => editor.setShape("path"));
+document.querySelectorAll(".shapeBtn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    selectShape(e);
+  });
+});
 
-document
-  .querySelector("#drawLineBtn")
-  .addEventListener("click", () => editor.setShape("line"));
-
-document
-  .querySelector("#drawCircleBtn")
-  .addEventListener("click", () => editor.setShape("circle"));
-
-document
-  .querySelector("#drawCurveBtn")
-  .addEventListener("click", () => editor.setShape("curve"));
+function selectShape(e) {
+  const selectedShape = e.target;
+  const buttons = Array.from(document.querySelectorAll(".shapeBtn"));
+  const activeBtn = buttons.find((btn) => btn.classList.contains("active"));
+  activeBtn.classList.remove("active");
+  selectedShape.classList.add("active");
+  editor.setShape(selectedShape.id);
+}
 
 function startDraw(e) {
   editor.lastDrawingState = editor.ctx.getImageData(0, 0, 800, 600);
@@ -48,5 +45,3 @@ function startDraw(e) {
     editor.prevDraw = null;
   };
 }
-
-// 019ffd

@@ -7,7 +7,7 @@ class Editor {
     this.clickedMousePos = { x: null, y: null };
     this.shapeRef = SHAPES.path; //set path shape as default shape to draw
     this.shapeName = "path";
-    this.size = 4; // pixel size to draw
+    this.size = 1; // pixel size to draw
     this.lastDrawingState = null;
 
     this.setClickedMousePos = this.setClickedMousePos.bind(this);

@@ -7,7 +7,6 @@ export default function bresenhamCircle(x_center, y_center, x1, y1, putPixel) {
   let x = 0,
     y = radius;
   let p = 3 - 2 * radius;
-  let i = 1;
 
   while (x < y) {
     plot_circle_points(x, y, x_center, y_center, putPixel);

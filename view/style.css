@@ -40,7 +40,11 @@ canvas {
   justify-content: space-around;
 }
 
-.icon {
+.shapeBtn {
   color: whitesmoke;
   font-size: 32px;
+}
+
+.active {
+  color: #019ffd;
 }
