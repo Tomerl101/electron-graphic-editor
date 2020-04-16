@@ -6,38 +6,24 @@
 // process.
 
 import { Editor } from "../Editor.js";
+import {
+  initShapeButtons,
+  initColorButtons,
+} from "./buttons/buttonListeners.js";
+import {
+  initBrushSizeSlider,
+  initCurveStepSizeSlider,
+} from "./sliders/sliderListeners.js";
+
 const editor = new Editor();
 
 editor.canvas.addEventListener("contextmenu", editor.clearCanvas, false);
 editor.canvas.addEventListener("mousedown", startDraw, false);
-
-document.querySelectorAll(".shapeBtn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    selectShape(e);
-  });
-});
-
-document.querySelectorAll(".color").forEach((color) => {
-  color.addEventListener("click", (e) => {
-    const colorValue = getSelectedColor(e);
-    editor.setColor(colorValue);
-  });
-});
-
-function selectShape(e) {
-  const selectedShape = e.target;
-  const buttons = Array.from(document.querySelectorAll(".shapeBtn"));
-  const activeBtn = buttons.find((btn) => btn.classList.contains("active"));
-  activeBtn.classList.remove("active");
-  selectedShape.classList.add("active");
-  editor.setShape(selectedShape.id);
-}
-
-function getSelectedColor(e) {
-  return getComputedStyle(
-    document.querySelector(`#${e.target.id}`)
-  ).getPropertyValue(`--${e.target.id}-color`);
-}
+initBrushSizeSlider(editor);
+initCurveStepSizeSlider(editor);
+initShapeButtons(editor);
+initColorButtons(editor);
+//--------------------------------------
 
 function startDraw(e) {
   editor.lastDrawingState = editor.ctx.getImageData(0, 0, 800, 600);
@@ -55,6 +41,5 @@ function startDraw(e) {
 
     document.removeEventListener("mousemove", editor.draw);
     editor.canvas.onmouseup = null;
-    editor.prevDraw = null;
   };
 }

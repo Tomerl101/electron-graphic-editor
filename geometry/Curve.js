@@ -7,8 +7,11 @@ export class Curve extends Shape {
   static shouldAddControlPoints = false;
   static controlPointsCount = 0;
   static canvasDrawingState = null;
+  static stepSize = 0.01;
 
   static draw(x1, y1, x2, y2, putPixel, editor) {
+    // this.canvasDrawingState = editor.lastDrawingState;
+
     let prevPoint;
     let currPoint;
 
@@ -37,7 +40,7 @@ export class Curve extends Shape {
     }
 
     editor.ctx.putImageData(this.canvasDrawingState, 0, 0);
-    for (var t = 0; t <= 1; t += 0.01) {
+    for (var t = 0; t <= 1; t += this.stepSize) {
       let [p0, p1, p2, p3] = this.controlPoints;
       currPoint = cubicBezierCurve(p0, p1, p2, p3, t);
 
