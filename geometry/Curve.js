@@ -10,8 +10,6 @@ export class Curve extends Shape {
   static stepSize = 0.01;
 
   static draw(x1, y1, x2, y2, putPixel, editor) {
-    // this.canvasDrawingState = editor.lastDrawingState;
-
     let prevPoint;
     let currPoint;
 

@@ -1,4 +1,5 @@
 import SHAPES from "./geometry/index.js";
+import { Circle } from "./geometry/Circle.js";
 
 class Editor {
   constructor() {
@@ -8,9 +9,11 @@ class Editor {
     this.shapeRef = SHAPES.path; //set path shape as default shape to draw
     this.shapeName = "path";
     this.color = "#000000";
-    this.size = 3; // pixel size to draw
+    this.brushSize = 1; // pixel size to draw
     this.lastDrawingState = null;
+    this.lastDrawingState = this.ctx.getImageData(0, 0, 800, 600);
 
+    //functions binding
     this.setClickedMousePos = this.setClickedMousePos.bind(this);
     this.getCurrMousePos = this.getCurrMousePos.bind(this);
     this.clearCanvas = this.clearCanvas.bind(this);
@@ -19,7 +22,7 @@ class Editor {
   }
 
   putPixel(x, y) {
-    this.ctx.fillRect(x, y, this.size, this.size);
+    this.ctx.fillRect(x, y, this.brushSize, this.brushSize);
   }
 
   setColor(color) {

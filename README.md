@@ -21,6 +21,7 @@ Feel free to support this project and add many more features
 - Bucket tool - (Fill shape with color)
 - Add more algorithms for different shapes drawing
 - Responsive UI
+- Zoom in/out
 
 ## Supported shapes ✏️
 
